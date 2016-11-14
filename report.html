@@ -11779,7 +11779,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11861,13 +11861,16 @@ div#notebook {
 <span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># mean_price = prices.mean()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="c1"># median_price = prices.median()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="c1"># std_price = prices.std()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11894,7 +11897,7 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -11927,9 +11930,18 @@ Standard deviation of prices: $165,340.28
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>*<em>Answer: </em></p>
 <ol>
-<li>RM : As RM increases, MEDV should increase</li>
-<li>LSTAT :  As LSTAT increases, MEDV should decrease</li>
-<li>PTRATIO : As PTRATIO increases, MEDV should decrease*</li>
+<li>RM : As RM increases, MEDV should increase<ul>
+<li>As Avg no of rooms in household increases, it means people have bigger houses, thus it must be a posh area</li>
+</ul>
+</li>
+<li>LSTAT :  As LSTAT increases, MEDV should decrease<ul>
+<li>People with weak financial condition stay in an area with cheap housing rates, thus higher the no of lower class people, the area must be cheaper</li>
+</ul>
+</li>
+<li>PTRATIO : As PTRATIO increases, MEDV should decrease*<ul>
+<li>A school is considered to be good if teachers can personaly focus on each student, and to afford more no of techers per group of students, school must have higher fees, thus area must be having rich people living in the area who can afford the higher school fee</li>
+</ul>
+</li>
 </ol>
 
 </div>
@@ -12062,6 +12074,18 @@ Standard deviation of prices: $165,340.28
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>*<em>Answer:</em>0.923*</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R-squared is a statistical measure of how close the data are to the fitted regression line
+The above model has R score 0.923, and the value lies between 0 to 1, where 1 means model is really nice
+Thus value of 0.923 means model is quite near the perfection</p>
 
 </div>
 </div>
@@ -13833,10 +13857,31 @@ c0qSJEmSJEljY+eUJEmSJEmSxua/N9Tn/EsFzVEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>*<em>Answer: </em>Chosen Graph : Max_depth = 3 as the testing curve has highest score for this one</p>
+<p><strong>Answer:</strong> <em>Chosen Graph : Max_depth = 3</em> as the testing curve has highest score for this one</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>After a threshold (nearly 200 examples), score is nearly constant
 for both training and testing curve</p>
-<p>No, having more training points wouldn't benifit the score*</p>
+<p>Before reaching the constant, score for training data drops from 1(=perfect), because as more and more training points are added, model starts to genralize for more points</p>
+<p>For testing data, model starts from 0(= worst model), i.e model wasn't ab;e to genralize well on less no of points but as no of points starts to increase, model genrates a feel for the data points and score starts to improve</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>No, having more training points wouldn't benifit the score
+As we can see, after certain no of points train score and test score starts to converge and accuracy stays constant after that point, thus more examples won't make much of a difference</p>
 
 </div>
 </div>
@@ -14570,6 +14615,8 @@ sxJzsmZmZmZWYk7WzMzMzErsf6fIqSR2LyeRAAAAAElFTkSuQmCC
 <p>Max_depth = 10 : High Variance</p>
 <p>Score is low (i.e. error is high) for depth = 1
 As we start increasing the depth, for validation data, score increases upto a point (3 in ths case) and starts going down after that*</p>
+<p>Model suffers from High Variance when both Complexity (Max Depth) and error both are high (or Score is low) -&gt; 10</p>
+<p>Model suffers from high Bias when Complexity (Max Depth) is low, but error is high (or Score is low) -&gt; 1</p>
 
 </div>
 </div>
@@ -14621,7 +14668,8 @@ As we start increasing the depth, for validation data, score increases upto a po
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>*<em>Answer: </em>Grid Search means trying different parameters (eg. gamma for SVC) and see which one fits the best*</p>
+<p><strong>Answer</strong>: <em>Grid Search means trying different parameters (eg. gamma for SVC) and see which one fits the best</em></p>
+<p>Grid search means we have a set of models (which differ from each other in their parameter values, which lie on a grid). What we do is we then train each of the models and evaluate it using cross-validation, then select the one that performed best.</p>
 
 </div>
 </div>
@@ -14642,7 +14690,8 @@ As we start increasing the depth, for validation data, score increases upto a po
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>*<em>Answer: </em>The original dataset is partitioned into k-subsets and they are used in cyclic fashion for training and testing sets. In ensures utilization of all the data for both training and testing purposes*</p>
+<p><strong>Answer</strong>:</p>
+<p>K-fold cross validation is one way to improve over the holdout method. The data set is divided into k subsets, and the holdout method is repeated k times. Each time, one of the k subsets is used as the test set and the other k-1 subsets are put together to form a training set. Then the average error across all k trials is computed. The advantage of this method is that it matters less how the data gets divided. Every data point gets to be in a test set exactly once, and gets to be in a training set k-1 times. The variance of the resulting estimate is reduced as k is increased</p>
 
 </div>
 </div>
@@ -14861,10 +14910,32 @@ Predicted selling price for Client 3&#39;s home: $931,636.36
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>*<em>Answer: </em>
+<p><strong>Answer: </strong>
 Predicted selling price for Client 1's home: $403,025.00</p>
+
+<pre><code>- 5 rooms, 17% neighbour poverty, 15 std-teacher ratio
+    - No of rooms in middle  (avgh)
+    - % of poors in neighbours in middle  (avg)
+    - average teacher-student ratio (avg)
+        - Which together means moderate rates
+
+</code></pre>
 <p>Predicted selling price for Client 2's home: $237,478.72</p>
-<p>Predicted selling price for Client 3's home: $931,636.36*</p>
+
+<pre><code>- 4 rooms, 32% neighbour poverty, 22 std-teacher ratio
+    - Least no of rooms (bad)
+    - highest % of poors in neighbours (bad)
+    - lowest teacher-student ratio (bad)
+        - Which together means **lowest** rates
+
+</code></pre>
+<p>Predicted selling price for Client 3's home: $931,636.36</p>
+
+<pre><code>- 8 rooms, 3% neighbour poverty, 12 std-teacher ratio 
+    - highest no of rooms  (good)
+    - lowest % of poors in neighbours  (good)
+    - highest teacher-student ratio (good)
+        - Which together means **highest** rates</code></pre>
 
 </div>
 </div>
